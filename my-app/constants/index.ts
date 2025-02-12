@@ -181,19 +181,18 @@ export const SkillData = [
 
 export const Projects = [
   {
-    title: "Portfolio Personnel",
+    title: "Quercus Assurances",
     description: "Un portfolio moderne développé avec Next.js et Tailwind CSS, présentant mes compétences et projets avec des animations fluides.",
     image: "/Quercus.png",
     tags: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-    source: "https://github.com/yourusername/portfolio",
-    demo: "https://portfolio.dev",
+    demo: "https://www.quercus-assurances.fr",
   },
   {
     title: "Application de Gestion de Tâches",
     description: "Une application web permettant de gérer ses tâches quotidiennes avec des fonctionnalités de drag and drop et de filtrage.",
     image: "/projects/task-manager.png",
     tags: ["React", "TypeScript", "Material UI", "Firebase"],
-    source: "https://github.com/yourusername/task-manager",
+
     demo: "https://task-manager.dev",
   },
   {
@@ -201,7 +200,7 @@ export const Projects = [
     description: "Une plateforme e-commerce complète avec panier d'achat, paiement en ligne et gestion des commandes.",
     image: "/projects/ecommerce.png",
     tags: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS"],
-    source: "https://github.com/yourusername/ecommerce",
+
     demo: "https://ecommerce.dev",
   },
   {
@@ -209,7 +208,6 @@ export const Projects = [
     description: "Un portfolio moderne développé avec Next.js et Tailwind CSS, présentant mes compétences et projets avec des animations fluides.",
     image: "/projects/portfolio.png",
     tags: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-    source: "https://github.com/yourusername/portfolio",
     demo: "https://portfolio.dev",
   },
   {
@@ -217,7 +215,6 @@ export const Projects = [
     description: "Une application web permettant de gérer ses tâches quotidiennes avec des fonctionnalités de drag and drop et de filtrage.",
     image: "/projects/task-manager.png",
     tags: ["React", "TypeScript", "Material UI", "Firebase"],
-    source: "https://github.com/yourusername/task-manager",
     demo: "https://task-manager.dev",
   },
   {

@@ -70,7 +70,7 @@ const Page = () => {
           initial={{ opacity: 1, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="flex justify-end mb-16 w-full"
+          className="flex justify-end mb-10 w-full"
         >
           <div className="relative z-10 px-6 py-3 rounded-xl border backdrop-blur-sm border-purple-500/20">
             <h1 className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500">
