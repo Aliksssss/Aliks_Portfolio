@@ -51,7 +51,7 @@ const ContactForm = () => {
 
       <div className="w-full">
         <h1 className="mb-2 text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500">
-          Contact
+          Contact ✌️
         </h1>
         <p className="mb-8 text-center text-gray-400">
           Envoyez-moi un message
@@ -110,7 +110,7 @@ const ContactForm = () => {
             className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white font-semibold 
                      hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:-translate-y-0.5"
           >
-            Envoyer
+            Envoyer 👍
           </motion.button>
         </form>
       </div>
