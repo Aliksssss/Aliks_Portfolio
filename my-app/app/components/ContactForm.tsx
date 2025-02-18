@@ -1,37 +1,60 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
+    to_name: 'Aliks', // Nom du destinataire
     name: '',
     email: '',
     message: ''
   });
   const [showNameModal, setShowNameModal] = useState(false);
 
+  useEffect(() => {
+    emailjs.init('9p5VQDmbIblhbd72W');
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
 
-    // Afficher le modal lorsque le nom est entré
     if (name === 'name' && value.trim() !== '' && !showNameModal) {
       setShowNameModal(true);
-      // Cacher le modal après 3 secondes
       setTimeout(() => setShowNameModal(false), 3000);
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logique d'envoi du formulaire
-    console.log('Form submitted:', formData);
+    
+    if (!form.current) return;
+
+    emailjs.sendForm(
+      'service_6vwiuf7',
+      'template_0ygnqll',
+      form.current,
+      '9p5VQDmbIblhbd72W'
+    )
+    .then((result) => {
+      console.log('Email envoyé avec succès:', result.text);
+      setFormData({
+        to_name: 'Aliks',
+        name: '',
+        email: '',
+        message: ''
+      });
+    })
+    .catch((error) => {
+      console.error('Erreur lors de l\'envoi:', error.text);
+    });
   };
 
   return (
     <div className="relative">
-      {/* Modal de bienvenue */}
       <AnimatePresence>
         {showNameModal && (
           <motion.div
@@ -57,7 +80,7 @@ const ContactForm = () => {
           Envoyez-moi un message
         </p>
         
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form ref={form} onSubmit={handleSubmit} className="space-y-6">
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 
                            group-hover:opacity-40 transition duration-500"></div>
@@ -103,15 +126,14 @@ const ContactForm = () => {
             />
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+          <button
             type="submit"
-            className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg text-white font-semibold 
-                     hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:-translate-y-0.5"
+            className="w-full px-8 py-3 text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg 
+                     hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-purple-600 
+                     focus:ring-opacity-50 transition-colors"
           >
-            Envoyer 👍
-          </motion.button>
+            Envoyer
+          </button>
         </form>
       </div>
     </div>
