@@ -153,16 +153,6 @@ export const SkillData = [
     category: "DevOps",
   },
   {
-    name: "Material UI",
-    Image: "/mui.png",
-    category: "Frontend",
-  },
-  {
-    name: "Redux",
-    Image: "/redux.png",
-    category: "Frontend",
-  },
-  {
     name: "Stripe",
     Image: "/stripe.webp",
     category: "Backend",
@@ -191,8 +181,7 @@ export const Projects = [
     title: "Application de Gestion de Tâches",
     description: "Une application web permettant de gérer ses tâches quotidiennes avec des fonctionnalités de drag and drop et de filtrage.",
     image: "/projects/task-manager.png",
-    tags: ["React", "TypeScript", "Material UI", "Firebase"],
-
+    tags: ["React", "TypeScript", "Firebase"],
     demo: "https://task-manager.dev",
   },
   {
@@ -200,7 +189,6 @@ export const Projects = [
     description: "Une plateforme e-commerce complète avec panier d'achat, paiement en ligne et gestion des commandes.",
     image: "/projects/ecommerce.png",
     tags: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS"],
-
     demo: "https://ecommerce.dev",
   },
   {
@@ -214,7 +202,7 @@ export const Projects = [
     title: "Application de Gestion de Tâches",
     description: "Une application web permettant de gérer ses tâches quotidiennes avec des fonctionnalités de drag and drop et de filtrage.",
     image: "/projects/task-manager.png",
-    tags: ["React", "TypeScript", "Material UI", "Firebase"],
+    tags: ["React", "TypeScript", "Firebase"],
     demo: "https://task-manager.dev",
   },
   {
