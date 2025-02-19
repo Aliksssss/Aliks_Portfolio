@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '@/constants/emailjs';
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -15,7 +16,7 @@ const ContactForm = () => {
   const [showNameModal, setShowNameModal] = useState(false);
 
   useEffect(() => {
-    emailjs.init('9p5VQDmbIblhbd72W');
+    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,10 +35,10 @@ const ContactForm = () => {
     if (!form.current) return;
 
     emailjs.sendForm(
-      'service_6vwiuf7',
-      'template_0ygnqll',
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
       form.current,
-      '9p5VQDmbIblhbd72W'
+      EMAILJS_CONFIG.PUBLIC_KEY
     )
     .then((result) => {
       console.log('Email envoyé avec succès:', result.text);
