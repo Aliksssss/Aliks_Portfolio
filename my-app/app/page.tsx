@@ -32,7 +32,7 @@ export default function Home() {
             >
               <Link 
                 href="/About"
-                className="inline-block px-8 py-3 text-lg font-medium text-white bg-purple-600 rounded-full transition-all duration-300 hover:bg-purple-700 hover:scale-105"
+                className="inline-block px-6 py-3 text-l font-medium text-white bg-purple-600 rounded-full transition-all duration-300 hover:bg-purple-700 hover:scale-105"
               >
                 En savoir plus
               </Link>

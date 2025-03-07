@@ -74,64 +74,64 @@ const ContactForm = () => {
       </AnimatePresence>
 
       <div className="w-full">
-        <h1 className="mb-2 text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500">
+        <h1 className="mb-2 text-xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">
           Contact ✌️
         </h1>
-        <p className="mb-8 text-center text-gray-400">
+        <p className="mb-6 text-sm text-center text-gray-400">
           Envoyez-moi un message
         </p>
         
-        <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+        <form ref={form} onSubmit={handleSubmit} className="space-y-4">
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 
-                           group-hover:opacity-40 transition duration-500"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-10 
+                           group-hover:opacity-30 transition duration-500"></div>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Votre nom"
-              className="relative w-full px-4 py-3 bg-black/40 backdrop-blur-sm rounded-lg border border-purple-500/20 
-                       text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/40 transition-colors"
+              className="relative w-full px-3 py-2 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 
+                       text-sm text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/40 transition-colors"
               required
             />
           </div>
 
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 
-                           group-hover:opacity-40 transition duration-500"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-10 
+                           group-hover:opacity-30 transition duration-500"></div>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
               placeholder="Votre email"
-              className="relative w-full px-4 py-3 bg-black/40 backdrop-blur-sm rounded-lg border border-purple-500/20 
-                       text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/40 transition-colors"
+              className="relative w-full px-3 py-2 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 
+                       text-sm text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/40 transition-colors"
               required
             />
           </div>
 
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 
-                           group-hover:opacity-40 transition duration-500"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-10 
+                           group-hover:opacity-30 transition duration-500"></div>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Votre message"
-              rows={4}
-              className="relative w-full px-4 py-3 bg-black/40 backdrop-blur-sm rounded-lg border border-purple-500/20 
-                       text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/40 transition-colors"
+              rows={3}
+              className="relative w-full px-3 py-2 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 
+                       text-sm text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/40 transition-colors"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full px-8 py-3 text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg 
-                     hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-purple-600 
-                     focus:ring-opacity-50 transition-colors"
+            className="w-full px-4 py-2 text-sm text-white bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-lg 
+                     hover:from-purple-600/90 hover:to-pink-600/90 focus:outline-none focus:ring-2 focus:ring-purple-500/50 
+                     focus:ring-opacity-50 transition-all duration-300 backdrop-blur-sm"
           >
             Envoyer
           </button>

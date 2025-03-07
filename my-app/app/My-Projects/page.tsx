@@ -15,42 +15,42 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       className="relative group"
     >
       {/* Effet de glow en arrière-plan */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur-xl 
-                     opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg blur-lg 
+                     opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Carte principale */}
-      <div className="relative overflow-hidden rounded-xl border border-purple-500/20 backdrop-blur-sm 
-                     bg-black/40 hover:bg-purple-900/60 transition-all duration-300">
+      <div className="relative overflow-hidden rounded-lg border border-white/5 backdrop-blur-sm 
+                     bg-black/30 hover:bg-black/40 transition-all duration-500 group-hover:border-purple-500/20">
         {/* Image du projet */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-40 overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           {/* Overlay au survol */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 
-                         group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 
+                         group-hover:opacity-100 transition-opacity duration-500" />
         </div>
 
         {/* Contenu */}
-        <div className="p-6">
-          <h3 className="text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r 
-                         from-purple-400 to-pink-400">
+        <div className="p-4">
+          <h3 className="text-lg font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r 
+                         from-purple-300 to-pink-300 group-hover:from-purple-200 group-hover:to-pink-200 transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-gray-300 mb-4 line-clamp-2">
+          <p className="text-xs italic text-gray-400 mb-3 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">
             {project.description}
           </p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-3">
             {project.tags.map((tag: string, tagIndex: number) => (
               <span
                 key={tagIndex}
-                className="px-3 py-1 text-sm rounded-full bg-purple-500/10 border border-purple-500/20 
-                         text-purple-300 hover:bg-purple-500/20 transition-colors duration-300"
+                className="px-2 py-0.5 text-xs rounded-md bg-white/5 border border-white/10 
+                         text-gray-300 group-hover:bg-purple-500/10 group-hover:border-purple-500/20 transition-all duration-300"
               >
                 {tag}
               </span>
@@ -63,14 +63,14 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r 
-                       from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 
-                       transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md 
+                       bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 
+                       transition-all duration-300 group-hover:scale-[1.02]"
             >
               <span>Voir le projet</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
+                className="h-3.5 w-3.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -92,29 +92,33 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
 
 const ProjectsPage = () => {
   return (
-    <div className="w-full min-h-screen bg-[#030014]">
-      {/* MatrixRain en arrière-plan */}
+    <div className="w-full min-h-screen bg-gradient-to-b from-[#030014] to-[#090041] text-white overflow-hidden">
+      {/* Fond animé */}
       <div className="fixed inset-0 z-0">
         <MatrixRain className="opacity-40" />
       </div>
 
-      <div className="relative z-10 px-8 py-20 md:px-16 lg:px-32">
-        {/* Titre */}
+      <div className="relative z-10 container mx-auto px-4 py-8 max-w-5xl mt-6">
+        {/* Titre encadré */}
         <motion.div
-          initial={{ opacity: 1, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="flex justify-end mb-16 w-full"
+          transition={{ duration: 0.6 }}
+          className="flex justify-end mb-12"
         >
-          <div className="relative z-10 px-6 py-3 rounded-xl border backdrop-blur-sm border-purple-500/20">
-            <h1 className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500">
-              Mes Projets
-            </h1>
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-lg blur-xl opacity-75 
+                         group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="relative px-6 py-3 bg-black/50 backdrop-blur-xl rounded-lg border border-white/10">
+              <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                Mes Projets
+              </h1>
+            </div>
           </div>
         </motion.div>
 
         {/* Grille de projets */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {Projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}

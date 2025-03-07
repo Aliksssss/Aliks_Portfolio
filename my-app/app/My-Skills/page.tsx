@@ -56,29 +56,33 @@ const Page = () => {
   }, {});
 
   return (
-    <div className="w-full min-h-screen bg-[#030014]">
-      {/* MatrixRain en arrière-plan */}
+    <div className="w-full min-h-screen bg-gradient-to-b from-[#030014] to-[#090041] text-white overflow-hidden">
+      {/* Fond animé */}
       <div className="fixed inset-0 z-0">
-        <MatrixRain className="opacity-30" />
+        <MatrixRain className="opacity-40" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-16 max-w-7xl mt-10">
+      <div className="relative z-10 container mx-auto px-4 py-8 max-w-5xl mt-6">
         {/* Titre encadré */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex justify-end mb-16"
+          className="flex justify-end mb-12"
         >
-          <div className="relative px-6 py-3 rounded-xl border backdrop-blur-sm border-purple-500/20 bg-black/40">
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500">
-              Mes Compétences
-            </h1>
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-lg blur-xl opacity-75 
+                         group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="relative px-6 py-3 bg-black/50 backdrop-blur-xl rounded-lg border border-white/10">
+              <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                Mes Compétences
+              </h1>
+            </div>
           </div>
         </motion.div>
 
         {/* Contenu principal */}
-        <div className="space-y-20">
+        <div className="space-y-16">
           {Object.entries(skillsByCategory).map(([category, skills], categoryIndex) => (
             <motion.div 
               key={category}

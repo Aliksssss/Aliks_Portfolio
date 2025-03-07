@@ -15,7 +15,7 @@ const Navbar = () => {
             className="object-contain w-full h-full rounded-full"
           />
         </div>
-        <h1 className="text-white text-[25px] font-semibold">
+        <h1 className="text-white text-[18px] font-semibold">
           Aliks{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500">
             {" "}

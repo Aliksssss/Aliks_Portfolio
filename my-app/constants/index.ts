@@ -55,14 +55,14 @@ export const aboutText = {
 
 export const experiences = [
   {
-    title: "Développeur Front-end",
+    title: "Développeur Front-end - Webmaster Freelance",
     period: "2023 - Présent",
-    description: "Création de sites web et d'applications web modernes utilisant React, Next.js et Tailwind CSS.",
+    description: "💻 Développement Web\n\n• Conception et création de sites web\n• Sites vitrines et e-commerce\n• Solutions CMS (WordPress, Joomla, Shopify)\n• Développement de fonctionnalités personnalisées\n\n🔧 Webmastering\n\n• Maintenance technique des sites\n• Optimisation SEO et performance\n• Amélioration de l'expérience utilisateur"
   },
   {
-    title: "Stage Développeur Web",
-    period: "2022 - 2023",
-    description: "Participation au développement de sites web pour divers clients, utilisation de technologies modernes.",
+    title: "Webmaster",
+    period: "2022 - 2025",
+    description: "👩‍💻 Gestion et maintenance\n\n• Mise à jour régulière des contenus\n• Surveillance des performances\n• Sécurisation contre les menaces\n\n⚙️ Optimisation et SEO\n\n• Amélioration du référencement naturel\n• Optimisation des performances\n• Analyse du trafic et statistiques\n\n🧑‍🏫 Support et Formation\n\n• Assistance technique\n• Formation à la gestion de contenu\n• Conseils d'amélioration UX"
   },
   {
     title: "Stage Développeur Web",
@@ -71,18 +71,18 @@ export const experiences = [
   }
 ];
 
-export const interests = [
+export const interests = [ 
   {
     title: "Développement Web",
-    description: "Passion pour la création d'interfaces utilisateur modernes et réactives",
+    description: "🎨 Interface & Design\n\n• Création d'interfaces modernes\n• Design responsive et adaptatif\n• Animations et interactions fluides"
   },
   {
     title: "Nouvelles Technologies",
-    description: "Veille technologique constante et apprentissage des dernières innovations",
+    description: "💡 Innovation & Veille\n\n• Veille technologique active\n• Apprentissage continu\n• Exploration des dernières tendances"
   },
   {
     title: "UI/UX Design",
-    description: "Création d'expériences utilisateur intuitives et esthétiques",
+    description: "✨ Expérience Utilisateur\n\n• Design centré utilisateur\n• Interfaces intuitives\n• Tests et optimisations UX"
   },
 ];
 

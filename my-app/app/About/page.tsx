@@ -15,25 +15,29 @@ const AboutMe = () => {
   };
 
   return (
-    <main className="relative w-full min-h-screen bg-[#030014] text-white overflow-hidden">
+    <main className="relative w-full min-h-screen bg-gradient-to-b from-[#030014] to-[#090041] text-white overflow-hidden">
       {/* Fond animé */}
       <div className="fixed inset-0 z-0">
-        <MatrixRain className="opacity-30" />
+        <MatrixRain className="opacity-40" />
       </div>
 
       {/* Conteneur principal */}
-      <div className="relative z-10 container mx-auto px-4 py-16 max-w-7xl mt-10">
+      <div className="relative z-10 container mx-auto px-4 py-8 max-w-5xl mt-6">
         {/* Titre encadré */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex justify-end mb-16"
+          className="flex justify-end mb-12"
         >
-          <div className="relative px-6 py-3 rounded-xl border backdrop-blur-sm border-purple-500/20 bg-black/40">
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500">
-              À Propos
-            </h1>
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-lg blur-xl opacity-75 
+                         group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="relative px-6 py-3 bg-black/50 backdrop-blur-xl rounded-lg border border-white/10">
+              <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                À Propos
+              </h1>
+            </div>
           </div>
         </motion.div>
 
@@ -42,18 +46,19 @@ const AboutMe = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row items-center gap-8 mb-16"
+          className="flex flex-col md:flex-row items-center gap-8 mb-12"
         >
           {/* Photo de profil */}
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-30 
-                           group-hover:opacity-60 transition duration-500"></div>
-            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-purple-500/20">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-full blur-xl opacity-75 
+                         group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-white/10 
+                         shadow-2xl shadow-purple-500/20">
               <Image
                 src="/Alisack_magic.png"
                 alt="Alisack Portrait"
                 fill
-                className="object-cover transform group-hover:scale-110 transition duration-500"
+                className="object-cover transform group-hover:scale-110 transition duration-700 ease-out"
                 priority
               />
             </div>
@@ -65,10 +70,10 @@ const AboutMe = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-4"
+              className="space-y-4 backdrop-blur-xl bg-white/5 rounded-2xl p-5 border border-white/10"
             >
-              <p className="text-gray-300 leading-relaxed">{aboutText.introduction}</p>
-              <p className="text-gray-300 leading-relaxed">{aboutText.mission}</p>
+              <p className="text-base text-gray-300 leading-relaxed">{aboutText.introduction}</p>
+              <p className="text-base text-gray-300 leading-relaxed">{aboutText.mission}</p>
             </motion.div>
           </div>
         </motion.div>
@@ -79,16 +84,18 @@ const AboutMe = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12"
         >
           <div className="flex items-center gap-3 mb-8">
-            <IoSchoolOutline className="w-6 h-6 text-purple-500" />
-            <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
-              Formation
+            <div className="p-2 rounded-lg bg-purple-500/10 backdrop-blur-xl border border-white/10">
+              <IoSchoolOutline className="w-5 h-5 text-purple-300" />
+            </div>
+            <h2 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+              Expériences 
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -98,17 +105,25 @@ const AboutMe = () => {
                 viewport={{ once: true }}
                 className="group relative"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 
-                               group-hover:opacity-40 transition duration-500"></div>
-                <div className="relative p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-purple-500/20 
-                               hover:border-purple-500/40 transition duration-300">
-                  <h3 className="text-lg font-semibold text-purple-400 mb-2 group-hover:text-pink-400 transition-colors">
-                    {exp.title}
-                  </h3>
-                  <p className="text-sm text-pink-400/80 mb-2">{exp.period}</p>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                    {exp.description}
-                  </p>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-2xl blur-xl opacity-50 
+                             group-hover:opacity-75 transition-all duration-500"></div>
+                <div className="relative h-full backdrop-blur-xl bg-black/50 rounded-2xl border border-white/10 p-5 
+                             transform transition-all duration-500 hover:-translate-y-1">
+                  <div className="flex flex-col h-full">
+                    <div className="flex-1">
+                      <div className="flex flex-col gap-2">
+                        <h3 className="text-base font-semibold text-purple-200 group-hover:text-pink-200 transition-colors duration-300">
+                          {exp.title}
+                        </h3>
+                        <span className="text-xs px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 w-fit">
+                          {exp.period}
+                        </span>
+                      </div>
+                      <div className="mt-3 text-sm text-gray-300 leading-relaxed space-y-4 whitespace-pre-wrap">
+                        {exp.description}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -123,13 +138,15 @@ const AboutMe = () => {
           viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-8">
-            <IoHeartOutline className="w-6 h-6 text-pink-500" />
-            <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+            <div className="p-2 rounded-lg bg-pink-500/10 backdrop-blur-xl border border-white/10">
+              <IoHeartOutline className="w-5 h-5 text-pink-300" />
+            </div>
+            <h2 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
               Centres d'intérêt
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {interests.map((interest, index) => (
               <motion.div
                 key={index}
@@ -139,16 +156,20 @@ const AboutMe = () => {
                 viewport={{ once: true }}
                 className="group relative"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-20 
-                               group-hover:opacity-40 transition duration-500"></div>
-                <div className="relative p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-purple-500/20 
-                               hover:border-purple-500/40 transition duration-300">
-                  <h3 className="text-base font-semibold text-purple-400 mb-2 group-hover:text-pink-400 transition-colors">
-                    {interest.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                    {interest.description}
-                  </p>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-2xl blur-xl opacity-50 
+                             group-hover:opacity-75 transition-all duration-500"></div>
+                <div className="relative h-full backdrop-blur-xl bg-black/50 rounded-2xl border border-white/10 p-5 
+                             transform transition-all duration-500 hover:-translate-y-1">
+                  <div className="flex flex-col h-full">
+                    <div className="flex-1">
+                      <h3 className="text-base font-semibold text-purple-200 group-hover:text-pink-200 transition-colors duration-300 mb-3">
+                        {interest.title}
+                      </h3>
+                      <div className="text-sm text-gray-300 leading-relaxed space-y-4 whitespace-pre-wrap">
+                        {interest.description}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}

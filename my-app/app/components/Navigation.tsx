@@ -40,7 +40,7 @@ const Navigation = () => {
     },
     visible: (index: number) => ({
       opacity: 1,
-      y: -62 * (index + 1),
+      y: -48 * (index + 1),
       transition: {
         delay: index * 0.1,
         duration: 0.5,
@@ -71,10 +71,10 @@ const Navigation = () => {
   return (
     <>
       {isRouting && <Transition />}
-      <div className="fixed bottom-5 left-14 z-50">
+      <div className="fixed bottom-4 left-10 md:left-20 z-50">
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex relative z-10 justify-center items-center w-14 h-14 bg-purple-800 rounded-full border shadow-lg transition-colors duration-300 hover:bg-purple-700 border-white/50 pulse-effect"
+          className="flex relative z-10 justify-center items-center w-10 h-10 bg-purple-800 rounded-full border shadow-lg transition-colors duration-300 hover:bg-purple-700 border-white/50 pulse-effect"
           initial="initial"
           animate="animate"
           variants={pulseAnimation}
@@ -86,7 +86,7 @@ const Navigation = () => {
             animate={{ rotate: isMenuOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <IoMenu className="w-7 h-7 text-white" />
+            <IoMenu className="w-5 h-5 text-white" />
           </motion.div>
           {hoveredButton === "menu" && (
             <div className="absolute inset-0 rounded-full animate-pulse-ring"></div>
@@ -145,7 +145,7 @@ const Navigation = () => {
                   >
                     <Link
                       href={nav.path}
-                      className={`flex relative z-10 justify-center items-center w-14 h-14 rounded-full shadow-lg bg-opacity-20 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:scale-110 hover:border-purple-500/50 ${
+                      className={`flex relative z-10 justify-center items-center w-10 h-10 rounded-full shadow-lg bg-opacity-20 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:scale-110 hover:border-purple-500/50 ${
                         path === nav.path ? 'bg-purple-600/80' : 'bg-black/50 hover:bg-purple-600/50'
                       }`}
                       onClick={() => {
@@ -153,7 +153,7 @@ const Navigation = () => {
                         setisRouting(true);
                       }}
                     >
-                      <nav.icon className="w-6 h-6 text-white" />
+                      <nav.icon className="w-4 h-4 text-white" />
                     </Link>
                     {hoveredButton === nav.name && (
                       <div className="absolute inset-0 rounded-full animate-pulse-ring"></div>
