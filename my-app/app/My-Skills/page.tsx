@@ -8,6 +8,9 @@ import MatrixRain from "@/components/MatrixRain";
 import "../styles/hexagon.css";
 
 const SkillHexagon = ({ skill, index }: { skill: any; index: number }) => {
+  // Vérifier si l'image est un SVG
+  const isSvg = skill.Image.endsWith('.svg');
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -16,27 +19,37 @@ const SkillHexagon = ({ skill, index }: { skill: any; index: number }) => {
       className="relative group"
     >
       {/* Effet de glow */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 blur-xl transition-all duration-500 group-hover:opacity-30"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl opacity-0 blur-xl transition-all duration-500 group-hover:opacity-30"></div>
       
       {/* Carte de compétence */}
-      <div className="relative p-6 bg-black/40 backdrop-blur-sm border border-purple-500/20 rounded-2xl transition-all duration-300 transform group-hover:scale-105 group-hover:border-purple-500/40">
-        <div className="flex flex-col items-center space-y-4">
+      <div className="relative p-3 bg-black/30 backdrop-blur-sm border border-purple-500/10 rounded-xl transition-all duration-300 transform group-hover:scale-105 group-hover:border-purple-500/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <div className="flex flex-col items-center space-y-2">
           {/* Image avec effet de glow */}
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 blur-xl transition-all duration-500 group-hover:opacity-40"></div>
-            <div className="relative w-16 h-16 flex items-center justify-center">
-              <Image
-                src={skill.Image}
-                alt={skill.name}
-                width={48}
-                height={48}
-                className="transition-all duration-300 transform group-hover:scale-110 filter group-hover:brightness-110"
-              />
+            <div className="relative w-10 h-10 flex items-center justify-center">
+              {isSvg ? (
+                // Rendu direct pour les SVG
+                <img
+                  src={skill.Image}
+                  alt={skill.name}
+                  className="w-8 h-8 transition-all duration-300 transform group-hover:scale-110 filter group-hover:brightness-110"
+                />
+              ) : (
+                // Utiliser le composant Image de Next.js pour les autres formats
+                <Image
+                  src={skill.Image}
+                  alt={skill.name}
+                  width={32}
+                  height={32}
+                  className="transition-all duration-300 transform group-hover:scale-110 filter group-hover:brightness-110"
+                />
+              )}
             </div>
           </div>
           
           {/* Nom de la compétence */}
-          <span className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 group-hover:from-purple-300 group-hover:to-pink-300 transition-all duration-300">
+          <span className="text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 group-hover:from-purple-300 group-hover:to-pink-300 transition-all duration-300">
             {skill.name}
           </span>
         </div>
@@ -73,7 +86,7 @@ const Page = () => {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-pink-600/50 rounded-lg blur-xl opacity-75 
                          group-hover:opacity-100 transition-all duration-500"></div>
-            <div className="relative px-6 py-3 bg-black/50 backdrop-blur-xl rounded-lg border border-white/10">
+            <div className="relative px-8 py-4 bg-black/50 backdrop-blur-xl rounded-lg border border-white/10">
               <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
                 Mes Compétences
               </h1>
@@ -88,19 +101,20 @@ const Page = () => {
               key={category}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.2 }}
+              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
               className="relative"
             >
-              {/* Titre de la catégorie avec ligne décorative */}
-              <div className="flex items-center gap-4 mb-8">
-                <h2 className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              {/* Titre de la catégorie avec style moderne */}
+              <div className="mb-8 flex items-center">
+                <div className="w-1.5 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full mr-3"></div>
+                <h2 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">
                   {category}
                 </h2>
-                <div className="flex-1 h-[1px] bg-gradient-to-r from-purple-500/20 to-transparent"></div>
+                <div className="ml-4 flex-1 h-[1px] bg-gradient-to-r from-purple-500/30 via-pink-500/20 to-transparent"></div>
               </div>
 
-              {/* Grille de compétences */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+              {/* Grille de compétences avec effet de décalage */}
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-3">
                 {skills.map((skill, index) => (
                   <SkillHexagon key={skill.name} skill={skill} index={index} />
                 ))}

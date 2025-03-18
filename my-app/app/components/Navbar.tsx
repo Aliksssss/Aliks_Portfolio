@@ -1,12 +1,27 @@
+"use client";
+
 import { Socials } from "@/constants";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const Navbar = () => {
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const newOpacity = Math.max(0.4, 1 - scrollPosition / 500);
+      setOpacity(newOpacity);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="fixed top-0 z-40 w-full h-[100px] bg-transparent flex justify-between items-center px-10 md:px-20">
       <div className="flex flex-row gap-3 items-center">
-        <div className="relative">
+        <div className="relative" style={{ opacity: opacity, transition: 'opacity 0.3s ease-in-out' }}>
           <Image
             src="/Logo.jpg"
             alt="logo"
@@ -26,13 +41,20 @@ const Navbar = () => {
 
       <div className="flex flex-row gap-5 mb-2">
         {Socials.map((social) => (
-          <Image
+          <a 
             key={social.name}
-            src={social.src}
-            alt={social.name}
-            width={20}
-            height={20}
-          />
+            href={social.link || "#"} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="transition-transform hover:scale-125 duration-300 hover:bg-purple-700"
+          >
+            <Image
+              src={social.src}
+              alt={social.name}
+              width={20}
+              height={20}
+            />
+          </a>
         ))}
       </div>
     </div>

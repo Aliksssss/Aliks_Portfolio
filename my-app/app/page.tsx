@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from 'framer-motion';
 import AnimatedTitle from './components/AnimatedTitle';
-import MatrixRain from '@/components/MatrixRain';
 
 export default function Home() {
   return (
@@ -22,7 +21,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-8 text-lg font-bold text-gray-300 md:text-xl"
             >
-              Webmaster - Développeur Front
+              Webmaster Freelance
             </motion.p>
             
             <motion.div
@@ -34,7 +33,7 @@ export default function Home() {
                 href="/About"
                 className="inline-block px-6 py-3 text-l font-medium text-white bg-purple-600 rounded-full transition-all duration-300 hover:bg-purple-700 hover:scale-105"
               >
-                En savoir plus
+                En savoir plus..
               </Link>
             </motion.div>
           </motion.div>

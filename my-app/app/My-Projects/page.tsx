@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { Projects } from "@/constants";
 import { motion } from "framer-motion";
@@ -63,8 +63,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md 
-                       bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 
+              className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-md bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 
                        transition-all duration-300 group-hover:scale-[1.02]"
             >
               <span>Voir le projet</span>

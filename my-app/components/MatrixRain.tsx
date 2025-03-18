@@ -45,7 +45,7 @@ const MatrixRain = memo(({ className = '' }: MatrixRainProps) => {
 
     const matrixColor = '#5B21B6';
     const characters = 'ກຂຄງຈສຊຍດຕຖທນບປຜຝພຟມຢຣລວຫອຮ';
-    const fontSize = 20;
+    const fontSize = 18;
     const columns = Math.floor(width / fontSize);
     
     if (dropsRef.current.length === 0) {

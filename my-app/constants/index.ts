@@ -1,17 +1,20 @@
 import { IoHomeOutline, IoPersonOutline, IoCodeSlashOutline, IoFolderOpenOutline, IoMailOutline } from "react-icons/io5";
 
 export const Socials = [
-  {
-    name: "Discord",
-    src: "/discord.svg",
-  },
+  // {
+  //   name: "Discord",
+  //   src: "/discord.svg",
+  // },
   {
     name: "Github",
     src: "/github.svg",
+    link:"https://github.com/",
   },
   {
     name: "LinkedIn",
     src: "/linkedin.svg",
+    link:"https://www.linkedin.com/in/roberto-fernando-fernandez",
+    
   },
 ];
 
@@ -49,7 +52,7 @@ export const NavLinks = [
 ];
 
 export const aboutText = {
-  introduction: "Passionné par le développement web et les nouvelles technologies, je suis un développeur front-end créatif et motivé. Mon parcours m'a permis d'acquérir une solide expertise dans la création d'interfaces utilisateur modernes et intuitives.",
+  introduction: "Passionné par le développement web et les nouvelles technologies, je suis un Webmaster Freelance créatif et motivé. \n Mon parcours m'a permis d'acquérir une solide expertise dans la création d'interfaces utilisateur modernes et intuitives.",
   mission: "Ma mission est de créer des expériences web exceptionnelles qui allient esthétique et fonctionnalité. Je m'efforce constamment d'apprendre et d'adopter les meilleures pratiques du développement web.",
 };
 
@@ -128,34 +131,19 @@ export const SkillData = [
     category: "Backend",
   },
   {
-    name: "MongoDB",
-    Image: "/mongodb.png",
-    category: "Backend",
-  },
-  {
     name: "MySQL",
     Image: "/mysql.png",
     category: "Backend",
   },
   {
-    name: "PostgreSQL",
-    Image: "/postges.png",
-    category: "Backend",
-  },
-  {
-    name: "Prisma",
-    Image: "/prisma.webp",
+    name: "PHP",
+    Image: "/php.png",
     category: "Backend",
   },
   {
     name: "Docker",
     Image: "/docker.webp",
     category: "DevOps",
-  },
-  {
-    name: "Stripe",
-    Image: "/stripe.webp",
-    category: "Backend",
   },
   {
     name: "WordPress",
@@ -166,15 +154,56 @@ export const SkillData = [
     name: "Joomla",
     Image: "/Joomla.png",
     category: "CMS",
+  },
+  {
+    name: "Shopify",
+    Image: "/shopify.png",
+    category: "CMS",
+  },
+  {
+    name: "ChatGPT",
+    Image: "/chatgpt2.png",
+    category: "IA",
+  },
+  {
+    name: "Gemini",
+    Image: "/Gemini.png",
+    category: "IA",
+    color:"bg-white",
+  },
+  {
+    name: "Claude",
+    Image: "/claude.png",
+    category: "IA",
+  },
+  {
+    name: "Midjourney",
+    Image: "/midjourney.png",
+    category: "IA",
+  },
+  {
+    name: "Figma",
+    Image: "/figma.png",
+    category: "Design",
+  },
+  {
+    name: "Canva",
+    Image: "/canva.png",
+    category: "Design",
+  },
+  {
+    name: "Photoshop",
+    Image: "/adobe-photoshop.png",
+    category: "Design",
   }
 ];
 
 export const Projects = [
   {
     title: "Quercus Assurances",
-    description: "Un portfolio moderne développé avec Next.js et Tailwind CSS, présentant mes compétences et projets avec des animations fluides.",
+    description: "Courtier indépendant spécialisé en assurance de personnes, accompagne ses clients avec des solutions sur-mesure.",
     image: "/Quercus.png",
-    tags: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+    tags: ["Wordpress","CSS"],
     demo: "https://www.quercus-assurances.fr",
   },
   {
