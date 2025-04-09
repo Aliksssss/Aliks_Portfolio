@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import { Noto_Sans_Lao } from 'next/font/google';
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import Navigation from "./components/Navigation";
-import MatrixRain from "@/components/MatrixRain";
+import GradientBackground from "@/components/GradientBackground";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -46,10 +45,9 @@ export default function RootLayout({
           `}
         </style>
       </head>
-      <body className="bg-[#030014] text-white overflow-hidden">
-        <MatrixRain className="fixed inset-0 z-0" />
+      <body className="bg-[#121212] text-white overflow-hidden">
+        <GradientBackground className="fixed inset-0 z-0" />
         <div className="relative z-20 h-screen overflow-y-auto">
-          <Navbar />
           <Navigation />
           <main className="min-h-screen">
             {children}

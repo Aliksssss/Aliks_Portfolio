@@ -36,49 +36,27 @@ const Navigation = () => {
   const menuVariants = {
     hidden: { 
       opacity: 0,
-      y: 20
+      y: -20
     },
     visible: (index: number) => ({
       opacity: 1,
-      y: -48 * (index + 1),
+      y: 48 * (index + 1),
       transition: {
         delay: index * 0.1,
-        duration: 0.5,
-        ease: [0.43, 0.13, 0.23, 0.96]
+        duration: 0.4,
+        ease: "easeOut"
       }
     })
-  };
-
-  const pulseAnimation = {
-    initial: { scale: 1 },
-    animate: {
-      scale: [1, 1.1, 1],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
-  const hoverAnimation = {
-    scale: 1.15,
-    transition: {
-      duration: 0.2
-    }
   };
 
   return (
     <>
       {isRouting && <Transition />}
-      <div className="fixed bottom-4 left-10 md:left-20 z-50">
+      <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50">
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex relative z-10 justify-center items-center w-10 h-10 bg-purple-800 rounded-full border shadow-lg transition-colors duration-300 hover:bg-purple-700 border-white/50 pulse-effect"
-          initial="initial"
-          animate="animate"
-          variants={pulseAnimation}
-          whileHover={hoverAnimation}
+          className="flex relative z-10 justify-center items-center w-10 h-10 bg-[#FF6984] rounded-full shadow-lg transition-all duration-300 hover:bg-[#FF6984]/80 border border-[#FF6984]/30"
+          whileHover={{ scale: 1.1 }}
           onMouseEnter={() => setHoveredButton("menu")}
           onMouseLeave={() => setHoveredButton(null)}
         >
@@ -88,65 +66,36 @@ const Navigation = () => {
           >
             <IoMenu className="w-5 h-5 text-white" />
           </motion.div>
-          {hoveredButton === "menu" && (
-            <div className="absolute inset-0 rounded-full animate-pulse-ring"></div>
-          )}
         </motion.button>
-
-        <style jsx global>{`
-          @keyframes pulse-ring {
-            0% {
-              transform: scale(1);
-              opacity: 0.5;
-              box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.7);
-            }
-            70% {
-              transform: scale(1.1);
-              opacity: 0.3;
-              box-shadow: 0 0 0 15px rgba(147, 51, 234, 0);
-            }
-            100% {
-              transform: scale(1);
-              opacity: 0.5;
-              box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
-            }
-          }
-
-          .animate-pulse-ring {
-            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            border: 2px solid rgba(147, 51, 234, 0.5);
-          }
-        `}</style>
 
         <AnimatePresence>
           {isMenuOpen && (
-            <div className="absolute left-0 bottom-full mb-2">
+            <div className="absolute left-0 top-full mt-2">
               {NavLinks.map((nav, index) => (
                 <motion.div
                   key={nav.name}
                   custom={index}
                   initial="hidden"
                   animate="visible"
-                  exit={{ opacity: 0, y: 20 }}
+                  exit={{ opacity: 0, y: -20 }}
                   variants={menuVariants}
-                  className="absolute bottom-0 left-0"
+                  className="absolute top-0 left-0"
                   style={{
                     zIndex: NavLinks.length - index
                   }}
                 >
                   <motion.div
-                    initial="initial"
-                    animate="animate"
-                    variants={pulseAnimation}
-                    whileHover={hoverAnimation}
+                    whileHover={{ scale: 1.1 }}
                     className="relative"
                     onMouseEnter={() => setHoveredButton(nav.name)}
                     onMouseLeave={() => setHoveredButton(null)}
                   >
                     <Link
                       href={nav.path}
-                      className={`flex relative z-10 justify-center items-center w-10 h-10 rounded-full shadow-lg bg-opacity-20 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:scale-110 hover:border-purple-500/50 ${
-                        path === nav.path ? 'bg-purple-600/80' : 'bg-black/50 hover:bg-purple-600/50'
+                      className={`flex relative z-10 justify-center items-center w-10 h-10 rounded-full shadow-lg backdrop-blur-sm border transition-all duration-300 ${
+                        path === nav.path 
+                          ? 'bg-[#FF6984] border-[#FF6984]/50' 
+                          : 'bg-black/50 border-white/10 hover:bg-[#FF6984]/70 hover:border-[#FF6984]/30'
                       }`}
                       onClick={() => {
                         setIsMenuOpen(false);
@@ -155,9 +104,6 @@ const Navigation = () => {
                     >
                       <nav.icon className="w-4 h-4 text-white" />
                     </Link>
-                    {hoveredButton === nav.name && (
-                      <div className="absolute inset-0 rounded-full animate-pulse-ring"></div>
-                    )}
                   </motion.div>
                 </motion.div>
               ))}

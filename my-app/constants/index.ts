@@ -1,4 +1,12 @@
 import { IoHomeOutline, IoPersonOutline, IoCodeSlashOutline, IoFolderOpenOutline, IoMailOutline } from "react-icons/io5";
+import { 
+  IoCodeOutline, 
+  IoDesktopOutline, 
+  IoGameControllerOutline, 
+  IoMusicalNotesOutline, 
+  IoBookOutline, 
+  IoGlobeOutline 
+} from "react-icons/io5";
 
 export const Socials = [
   // {
@@ -51,42 +59,60 @@ export const NavLinks = [
   },
 ];
 
-export const aboutText = {
-  introduction: "Passionné par le développement web et les nouvelles technologies, je suis un Webmaster Freelance créatif et motivé. \n Mon parcours m'a permis d'acquérir une solide expertise dans la création d'interfaces utilisateur modernes et intuitives.",
-  mission: "Ma mission est de créer des expériences web exceptionnelles qui allient esthétique et fonctionnalité. Je m'efforce constamment d'apprendre et d'adopter les meilleures pratiques du développement web.",
-};
+// Convertir aboutText en tableau pour pouvoir utiliser map()
+export const aboutText = [
+  "Passionné par le développement web et les nouvelles technologies, je conçois des interfaces modernes, intuitives et performantes.",
+  "Mon objectif est de transformer chaque projet en une expérience fluide et unique, alliant esthétique et fonctionnalité.",
+  "Ma mission est de créer des expériences web qui se démarquent. Mon approche repose sur des pratiques solides et une amélioration continue pour offrir des solutions adaptées aux besoins de chacun.",
+  "Prêt à donner vie à vos idées ? Contactez-moi pour créer ensemble une présence en ligne unique et performante !"
+];
 
 export const experiences = [
   {
-    title: "Développeur Front-end - Webmaster Freelance",
+    title: "Webmaster Freelance",
+    company: "Indépendant",
     period: "2023 - Présent",
-    description: "💻 Développement Web\n\n• Conception et création de sites web\n• Sites vitrines et e-commerce\n• Solutions CMS (WordPress, Joomla, Shopify)\n• Développement de fonctionnalités personnalisées\n\n🔧 Webmastering\n\n• Maintenance technique des sites\n• Optimisation SEO et performance\n• Amélioration de l'expérience utilisateur"
+    description: "Conception et création de sites web, maintenance technique, optimisation SEO et amélioration de l'expérience utilisateur."
   },
   {
     title: "Webmaster",
+    company: "Agence Web",
     period: "2022 - 2025",
-    description: "👩‍💻 Gestion et maintenance\n\n• Mise à jour régulière des contenus\n• Surveillance des performances\n• Sécurisation contre les menaces\n\n⚙️ Optimisation et SEO\n\n• Amélioration du référencement naturel\n• Optimisation des performances\n• Analyse du trafic et statistiques\n\n🧑‍🏫 Support et Formation\n\n• Assistance technique\n• Formation à la gestion de contenu\n• Conseils d'amélioration UX"
+    description: "Gestion et maintenance de sites, optimisation des performances, analyse du trafic et formation à la gestion de contenu."
   },
   {
     title: "Stage Développeur Web",
+    company: "Studio Digital",
     period: "2022 - 2023",
-    description: "Participation au développement de sites web pour divers clients, utilisation de technologies modernes.",
+    description: "Participation au développement de sites web pour divers clients, utilisation de technologies modernes."
   }
 ];
 
 export const interests = [ 
   {
-    title: "Développement Web",
-    description: "🎨 Interface & Design\n\n• Création d'interfaces modernes\n• Design responsive et adaptatif\n• Animations et interactions fluides"
+    name: "Développement Web",
+    icon: IoCodeOutline
   },
   {
-    title: "Nouvelles Technologies",
-    description: "💡 Innovation & Veille\n\n• Veille technologique active\n• Apprentissage continu\n• Exploration des dernières tendances"
+    name: "Nouvelles Technologies",
+    icon: IoDesktopOutline
   },
   {
-    title: "UI/UX Design",
-    description: "✨ Expérience Utilisateur\n\n• Design centré utilisateur\n• Interfaces intuitives\n• Tests et optimisations UX"
+    name: "UI/UX Design",
+    icon: IoGlobeOutline
   },
+  {
+    name: "Jeux Vidéo",
+    icon: IoGameControllerOutline
+  },
+  {
+    name: "Musique",
+    icon: IoMusicalNotesOutline
+  },
+  {
+    name: "Lecture",
+    icon: IoBookOutline
+  }
 ];
 
 export const SkillData = [
@@ -94,107 +120,149 @@ export const SkillData = [
     name: "HTML",
     Image: "/html.png",
     category: "Frontend",
+    level: 95,
+    experience: "5+ ans"
   },
   {
     name: "CSS",
     Image: "/css.png",
     category: "Frontend",
+    level: 90,
+    experience: "5+ ans"
   },
   {
     name: "JavaScript",
     Image: "/js.png",
     category: "Frontend",
+    level: 85,
+    experience: "4+ ans"
   },
   {
     name: "TypeScript",
     Image: "/ts.png",
     category: "Frontend",
+    level: 80,
+    experience: "3+ ans"
   },
   {
     name: "React",
     Image: "/react.png",
     category: "Frontend",
+    level: 85,
+    experience: "3+ ans"
   },
   {
     name: "Next.js",
     Image: "/next.png",
     category: "Frontend",
+    level: 80,
+    experience: "2+ ans"
   },
   {
     name: "Tailwind",
     Image: "/tailwind.png",
     category: "Frontend",
+    level: 90,
+    experience: "3+ ans"
   },
   {
     name: "Node.js",
     Image: "/node-js.png",
     category: "Backend",
+    level: 75,
+    experience: "3+ ans"
   },
   {
     name: "MySQL",
     Image: "/mysql.png",
     category: "Backend",
+    level: 80,
+    experience: "4+ ans"
   },
   {
     name: "PHP",
     Image: "/php.png",
     category: "Backend",
+    level: 85,
+    experience: "4+ ans"
   },
   {
     name: "Docker",
     Image: "/docker.webp",
     category: "DevOps",
+    level: 70,
+    experience: "2+ ans"
   },
   {
     name: "WordPress",
     Image: "/Wordpress icon.png",
     category: "CMS",
+    level: 95,
+    experience: "5+ ans"
   },
   {
     name: "Joomla",
     Image: "/Joomla.png",
     category: "CMS",
+    level: 85,
+    experience: "3+ ans"
   },
   {
     name: "Shopify",
     Image: "/shopify.png",
     category: "CMS",
+    level: 80,
+    experience: "2+ ans"
   },
   {
     name: "ChatGPT",
     Image: "/chatgpt2.png",
     category: "IA",
+    level: 90,
+    experience: "2+ ans"
   },
   {
     name: "Gemini",
     Image: "/Gemini.png",
     category: "IA",
     color:"bg-white",
+    level: 85,
+    experience: "1+ an"
   },
   {
     name: "Claude",
     Image: "/claude.png",
     category: "IA",
+    level: 80,
+    experience: "1+ an"
   },
   {
     name: "Midjourney",
     Image: "/midjourney.png",
     category: "IA",
+    level: 80,
+    experience: "1+ an"
   },
   {
     name: "Figma",
     Image: "/figma.png",
     category: "Design",
+    level: 90,
+    experience: "3+ ans"
   },
   {
     name: "Canva",
     Image: "/canva.png",
     category: "Design",
+    level: 85,
+    experience: "3+ ans"
   },
   {
     name: "Photoshop",
     Image: "/adobe-photoshop.png",
     category: "Design",
+    level: 80,
+    experience: "3+ ans"
   }
 ];
 
