@@ -6,7 +6,7 @@ import ContactForm from "../components/ContactForm";
 
 const Page = () => {
   return (
-    <main className="relative w-full min-h-screen bg-secondary text-white overflow-hidden">
+    <main className="relative w-full min-h-screen bg-secondary text-white">
       {/* Arrière-plan minimaliste */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary via-black to-primary/20"></div>
