@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <main className="flex overflow-hidden absolute inset-0 justify-center items-center bg-secondary">
+    <main className="flex relative inset-0 justify-center items-center bg-secondary h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
         {/* Fond moderne avec dégradé rose et noir */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary"></div>

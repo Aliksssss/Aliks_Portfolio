@@ -14,7 +14,7 @@ const AboutMe = () => {
   };
 
   return (
-    <main className="flex overflow-hidden relative w-full min-h-screen bg-secondary text-white">
+    <main className="flex relative w-full h-screen bg-secondary text-white overflow-y-auto">
       {/* Arrière-plan moderne avec dégradé et éléments lumineux */}
       <div className="absolute inset-0 z-0">
         {/* Fond avec dégradé noir et violet */}
@@ -30,7 +30,7 @@ const AboutMe = () => {
       </div>
       
       {/* Conteneur principal */}
-      <div className="relative z-10 container mx-auto px-4 py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-10 md:py-16 relative z-10 mb-6">
         {/* Titre moderne */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -98,9 +98,10 @@ const AboutMe = () => {
 
         {/* Section expérience */}
         <motion.div
-          {...fadeInUp}
-          transition={{ delay: 0.4 }}
-          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-16 mb-6"
         >
           <div className="flex items-center mb-10">
             <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 mr-4">
@@ -139,8 +140,10 @@ const AboutMe = () => {
 
         {/* Section centres d'intérêt */}
         <motion.div
-          {...fadeInUp}
-          transition={{ delay: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-16 mb-6"
         >
           <div className="flex items-center mb-10">
             <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 mr-4">
@@ -172,6 +175,9 @@ const AboutMe = () => {
             ))}
           </div>
         </motion.div>
+        
+        {/* Espace supplémentaire en bas pour éviter le chevauchement avec la barre sociale */}
+        <div className="pb-16"></div>
       </div>
     </main>
   );

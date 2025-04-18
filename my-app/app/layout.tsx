@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import GradientBackground from "@/components/GradientBackground";
 import ClientComponents from "./components/ClientComponents";
+import SocialIcons from "./components/SocialIcons";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,7 +24,6 @@ export const metadata: Metadata = {
   description: "Portfolio de développeur web spécialisé en création de sites modernes, accessibles et performants",
   keywords: ["développeur web", "portfolio", "frontend", "react", "nextjs", "tailwind"],
   authors: [{ name: "Aliks" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Aliks Dev | Portfolio de développeur web",
@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -45,6 +50,7 @@ export default function RootLayout({
           {`
             body {
               font-family: ${inter.variable}, ${notoSansLao.variable}, sans-serif;
+              overflow-y: auto !important;
             }
             ::-webkit-scrollbar {
               display: none;
@@ -80,18 +86,14 @@ export default function RootLayout({
         <meta name="theme-color" content="#030014" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="bg-background text-foreground overflow-hidden">
+      <body className="bg-background text-foreground min-h-screen flex flex-col">
         <GradientBackground className="fixed inset-0 z-0" />
-        <div className="relative z-20 h-screen overflow-y-auto">
-          <ClientComponents />
-          <Navigation />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <footer className="py-6 px-4 text-center text-white/60 text-sm">
-            <p> {new Date().getFullYear()} Aliks Dev. Tous droits réservés.</p>
-          </footer>
-        </div>
+        <ClientComponents />
+        <Navigation />
+        <main className="flex-1 relative z-20">
+          {children}
+        </main>
+        <SocialIcons />
       </body>
     </html>
   );
