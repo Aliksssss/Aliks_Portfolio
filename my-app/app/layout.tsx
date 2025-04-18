@@ -4,16 +4,7 @@ import { Noto_Sans_Lao } from 'next/font/google';
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import GradientBackground from "@/components/GradientBackground";
-import dynamic from 'next/dynamic';
-
-// Import dynamique des composants côté client pour éviter les erreurs d'hydratation
-const ThemeToggle = dynamic(() => import('./components/ThemeToggle'), { 
-  ssr: false 
-});
-
-const AccessibilityMenu = dynamic(() => import('./components/AccessibilityMenu'), {
-  ssr: false
-});
+import ClientComponents from "./components/ClientComponents";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -92,8 +83,7 @@ export default function RootLayout({
       <body className="bg-background text-foreground overflow-hidden">
         <GradientBackground className="fixed inset-0 z-0" />
         <div className="relative z-20 h-screen overflow-y-auto">
-          <ThemeToggle />
-          <AccessibilityMenu />
+          <ClientComponents />
           <Navigation />
           <main className="min-h-screen">
             {children}
