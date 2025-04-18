@@ -70,7 +70,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
               <Link 
                 href={project.demo} 
                 target="_blank"
-                className="px-3 py-1.5 text-xs font-medium bg-primary text-white hover:bg-primary/90 transition-colors flex items-center gap-1"
+                className="px-3 py-1.5 text-xs font-medium bg-primary text-white hover:bg-primary/90 transition-colors flex items-center gap-1 cursor-pointer"
               >
                 <span>Voir</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -82,7 +82,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
               <Link 
                 href={project.github} 
                 target="_blank"
-                className="px-3 py-1.5 text-xs font-medium bg-transparent text-white/80 hover:text-white transition-colors flex items-center gap-1 group-hover:text-primary/90"
+                className="px-3 py-1.5 text-xs font-medium bg-transparent text-white/80 hover:text-white transition-colors flex items-center gap-1 group-hover:text-primary/90 cursor-pointer"
               >
                 <span>Code</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

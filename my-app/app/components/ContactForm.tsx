@@ -15,9 +15,16 @@ const ContactForm = () => {
   });
   const [showNameModal, setShowNameModal] = useState(false);
   const [nameEntered, setNameEntered] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
-    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+    // Vérifier que la clé API est disponible
+    if (EMAILJS_CONFIG.PUBLIC_KEY) {
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+    } else {
+      console.error('EmailJS PUBLIC_KEY is missing');
+    }
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,6 +44,16 @@ const ContactForm = () => {
     e.preventDefault();
     
     if (!form.current) return;
+    
+    // Vérifier que les configurations EmailJS sont disponibles
+    if (!EMAILJS_CONFIG.SERVICE_ID || !EMAILJS_CONFIG.TEMPLATE_ID || !EMAILJS_CONFIG.PUBLIC_KEY) {
+      console.error('EmailJS configuration incomplete');
+      setSubmitStatus('error');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
     emailjs.sendForm(
       EMAILJS_CONFIG.SERVICE_ID,
@@ -52,9 +69,15 @@ const ContactForm = () => {
         email: '',
         message: ''
       });
+      setNameEntered(false);
+      setSubmitStatus('success');
     })
     .catch((error) => {
       console.error('Erreur lors de l\'envoi:', error.text);
+      setSubmitStatus('error');
+    })
+    .finally(() => {
+      setIsSubmitting(false);
     });
   };
 
@@ -70,7 +93,7 @@ const ContactForm = () => {
           >
             <div className="bg-black/90 backdrop-blur-sm border border-primary/30 px-4 py-2 rounded-xl shadow-xl w-full text-center">
               <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70 font-semibold text-base whitespace-normal">
-                Ravi de vous rencontrer, {formData.name} ! 👋
+                Ravi de vous rencontrer, {formData.name} 👋
               </p>
             </div>
           </motion.div>
@@ -149,12 +172,35 @@ const ContactForm = () => {
 
           <button
             type="submit"
-            className="w-full px-4 py-2 text-sm text-white bg-gradient-to-r from-primary/80 to-primary rounded-lg 
-                     hover:from-primary/90 hover:to-primary focus:outline-none focus:ring-2 focus:ring-primary/50 
-                     focus:ring-opacity-50 transition-all duration-300 backdrop-blur-sm"
+            disabled={isSubmitting}
+            className={`w-full px-4 py-2 text-sm text-white bg-gradient-to-r from-primary/80 to-primary rounded-lg 
+                      hover:from-primary/90 hover:to-primary focus:outline-none focus:ring-2 focus:ring-primary/50 
+                      focus:ring-opacity-50 transition-all duration-300 backdrop-blur-sm ${
+                        isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
+                      }`}
           >
-            Envoyer
+            {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
           </button>
+          
+          {submitStatus === 'success' && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 p-2 bg-green-500/20 border border-green-500/30 rounded-lg text-center"
+            >
+              <p className="text-sm text-green-400">Message envoyé avec succès!</p>
+            </motion.div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 p-2 bg-red-500/20 border border-red-500/30 rounded-lg text-center"
+            >
+              <p className="text-sm text-red-400">Erreur lors de l'envoi. Veuillez réessayer.</p>
+            </motion.div>
+          )}
         </form>
       </div>
     </div>

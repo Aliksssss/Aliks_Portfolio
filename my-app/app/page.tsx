@@ -54,7 +54,7 @@ export default function Home() {
             >
               <Link 
                 href="/Contact"
-                className="inline-block px-6 py-3 text-l font-medium text-white bg-primary rounded-full transition-all duration-300 hover:bg-primary/80 hover:scale-105"
+                className="inline-block px-6 py-3 text-l font-medium text-white bg-primary rounded-full transition-all duration-300 hover:bg-primary/80 hover:scale-105 cursor-pointer"
               >
                 Me Contacter
               </Link>
@@ -62,7 +62,7 @@ export default function Home() {
                 href="/My-Projects"
                 className="inline-block px-6 py-3 text-l font-medium text-white bg-transparent border border-white/30 rounded-full transition-all duration-300 hover:bg-white/10 hover:scale-105"
               >
-                Voir Projets
+                Mes Projets
               </Link>
             </motion.div>
           </motion.div>

@@ -76,7 +76,7 @@ export const experiences = [
   },
   {
     title: "Webmaster",
-    company: "Agence Web",
+    company: "Administration Publique",
     period: "2022 - 2025",
     description: "Gestion et maintenance de sites, optimisation des performances, analyse du trafic et formation à la gestion de contenu."
   },
@@ -94,7 +94,7 @@ export const interests = [
     icon: IoCodeOutline
   },
   {
-    name: "Nouvelles Technologies",
+    name: "Intelligence Artificielle",
     icon: IoDesktopOutline
   },
   {
@@ -104,10 +104,6 @@ export const interests = [
   {
     name: "Jeux Vidéo",
     icon: IoGameControllerOutline
-  },
-  {
-    name: "Musique",
-    icon: IoMusicalNotesOutline
   },
   {
     name: "Lecture",
