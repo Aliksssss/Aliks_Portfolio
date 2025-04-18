@@ -20,32 +20,33 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
       className="relative group"
+      whileHover={{ y: -5 }}
     >
-      <div className="relative overflow-hidden bg-black/10 h-full transition-all duration-200
-                    hover:bg-black/30 group">
+      <div className="relative overflow-hidden bg-black/10 rounded-xl shadow-md h-full transition-all duration-300
+                    hover:shadow-lg hover:shadow-primary/20 border border-transparent hover:border-primary/20 group">
         
         {/* Image du projet avec overlay */}
-        <div className="relative w-full h-44 overflow-hidden">
+        <div className="relative w-full h-48 overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"></div>
           
           {/* Technologies utilisées (positionnées sur l'image) */}
-          <div className="absolute bottom-2 right-2 flex flex-wrap justify-end gap-1 max-w-[80%]">
+          <div className="absolute bottom-3 right-3 flex flex-wrap justify-end gap-1.5 max-w-[80%] transition-transform duration-300 group-hover:translate-y-[-3px]">
             {project.tags && project.tags.slice(0, 3).map((tech: string, techIndex: number) => (
               <span 
                 key={techIndex}
-                className="px-1.5 py-0.5 text-[10px] bg-black/60 text-white/90 backdrop-blur-sm"
+                className="px-2 py-1 text-[10px] bg-black/70 text-white/90 backdrop-blur-sm rounded-full font-medium transition duration-300 group-hover:bg-primary/80"
               >
                 {tech}
               </span>
             ))}
             {project.tags && project.tags.length > 3 && (
-              <span className="px-1.5 py-0.5 text-[10px] bg-black/60 text-white/90 backdrop-blur-sm">
+              <span className="px-2 py-1 text-[10px] bg-black/70 text-white/90 backdrop-blur-sm rounded-full font-medium transition duration-300 group-hover:bg-primary/80">
                 +{project.tags.length - 3}
               </span>
             )}
@@ -53,16 +54,17 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
         </div>
         
         {/* Contenu du projet */}
-        <div className="p-4">
-          <h3 className="text-base font-medium mb-1.5 text-white group-hover:text-primary transition-colors">
+        <div className="p-5">
+          <h3 className="text-base font-medium mb-2 text-white group-hover:text-primary transition duration-300 flex items-center">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-2 opacity-0 group-hover:opacity-100 transition duration-300"></span>
             {project.title}
           </h3>
-          <p className="text-white/70 text-xs mb-4 line-clamp-2 group-hover:text-white/90 transition-colors">
+          <p className="text-white/70 text-xs mb-4 line-clamp-2 group-hover:text-white/90 transition duration-300">
             {project.description}
           </p>
           
-          {/* Ligne de séparation subtile */}
-          <div className="w-full h-px bg-white/5 mb-4 group-hover:bg-primary/20 transition-colors"></div>
+          {/* Ligne de séparation avec animation */}
+          <div className="w-0 h-px bg-primary/30 mb-4 group-hover:w-full transition duration-500 ease-out"></div>
           
           {/* Liens */}
           <div className="flex gap-3">
@@ -70,7 +72,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
               <Link 
                 href={project.demo} 
                 target="_blank"
-                className="px-3 py-1.5 text-xs font-medium bg-primary text-white hover:bg-primary/90 transition-colors flex items-center gap-1 cursor-pointer"
+                className="px-3 py-1.5 text-xs font-medium bg-primary text-white hover:bg-primary/90 transition duration-300 flex items-center gap-1 rounded-full cursor-pointer transform group-hover:translate-y-[-2px]"
               >
                 <span>Voir</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -82,7 +84,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
               <Link 
                 href={project.github} 
                 target="_blank"
-                className="px-3 py-1.5 text-xs font-medium bg-transparent text-white/80 hover:text-white transition-colors flex items-center gap-1 group-hover:text-primary/90 cursor-pointer"
+                className="px-3 py-1.5 text-xs font-medium bg-transparent text-white/80 hover:text-white transition duration-300 flex items-center gap-1 group-hover:text-primary/90 border border-transparent group-hover:border-primary/30 rounded-full cursor-pointer transform group-hover:translate-y-[-2px]"
               >
                 <span>Code</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SkillData } from "@/constants";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Animation variants
 const fadeInUp = {
@@ -12,7 +12,7 @@ const fadeInUp = {
   exit: { opacity: 0, y: -20 }
 };
 
-// Composant de carte de compétence ultra-moderne et minimaliste
+// Composant de carte de compétence ultra-moderne avec design rond
 const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   const isSvg = skill.Image.endsWith('.svg');
@@ -28,36 +28,37 @@ const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
     >
       <div 
         className={`
-          relative overflow-hidden p-3
-          transition-all duration-200 h-full
-          border border-white/5 rounded-[3px]
+          relative overflow-hidden p-4
+          transition-all duration-300 h-full
+          rounded-full aspect-square
+          flex items-center justify-center
+          cursor-pointer
           ${isHovered 
-            ? 'bg-white border-white shadow-sm' 
-            : 'bg-black/20'
+            ? 'bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/10 scale-105' 
+            : 'bg-black/20 hover:bg-black/30'
           }
         `}
       >
         <div className="relative z-10 flex flex-col items-center justify-center text-center">
           {/* Image de la compétence */}
           <div className={`
-            relative w-10 h-10 mb-2 flex items-center justify-center
-            ${isHovered ? 'opacity-100' : 'opacity-90'}
-            transition-all duration-200
+            relative w-12 h-12 mb-2 flex items-center justify-center
+            transition-all duration-300
             ${isHovered ? 'scale-110' : 'scale-100'}
           `}>
             <Image
               src={skill.Image}
               alt={skill.name}
-              width={isSvg ? 24 : 30}
-              height={isSvg ? 24 : 30}
-              className="object-contain"
+              width={isSvg ? 28 : 36}
+              height={isSvg ? 28 : 36}
+              className="object-contain drop-shadow-md"
             />
           </div>
           
           {/* Nom de la compétence */}
           <h3 className={`
-            text-xs font-medium transition-colors duration-200
-            ${isHovered ? 'text-secondary' : 'text-white'}
+            text-xs font-medium transition-colors duration-300
+            ${isHovered ? 'text-primary' : 'text-white/90'}
           `}>
             {skill.name}
           </h3>
@@ -72,12 +73,10 @@ const Page = () => {
   const categories = Array.from(new Set(SkillData.map(skill => skill.category)));
   
   // État pour suivre la catégorie active
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
   
   // Filtrer les compétences en fonction de la catégorie active
-  const filteredSkills = activeCategory 
-    ? SkillData.filter(skill => skill.category === activeCategory)
-    : SkillData;
+  const filteredSkills = SkillData.filter(skill => skill.category === activeCategory);
 
   return (
     <main className="relative w-full min-h-screen bg-secondary overflow-hidden">
@@ -109,65 +108,64 @@ const Page = () => {
           <div className="h-px w-16 bg-primary/50 mx-auto mt-3"></div>
         </motion.div>
 
-        {/* Filtres de catégorie simplifiés */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          <motion.button
-            key="all"
-            onClick={() => setActiveCategory(null)}
-            className={`
-              px-3 py-1.5 text-xs font-medium transition-all duration-200
-              ${activeCategory === null 
-                ? 'bg-primary/10 text-primary border-b border-primary' 
-                : 'bg-transparent text-white/70 hover:text-white hover:bg-black/20'
-              }
-            `}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Toutes
-          </motion.button>
-          
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`
-                px-3 py-1.5 text-xs font-medium transition-all duration-200
-                ${activeCategory === category 
-                  ? 'bg-primary/10 text-primary border-b border-primary' 
-                  : 'bg-transparent text-white/70 hover:text-white hover:bg-black/20'
-                }
-              `}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {category}
-            </motion.button>
-          ))}
+        {/* Filtres de catégorie modernisés */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-black/20 backdrop-blur-sm rounded-full p-1 inline-flex">
+            {categories.map((category) => (
+              <motion.button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`
+                  px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full
+                  cursor-pointer
+                  ${activeCategory === category 
+                    ? 'bg-primary text-white shadow-md' 
+                    : 'bg-transparent text-white/80 hover:text-white hover:bg-black/20'
+                  }
+                `}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {category}
+              </motion.button>
+            ))}
+          </div>
         </div>
 
-        {/* Grille de compétences */}
-        <motion.div 
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 max-w-4xl mx-auto"
-        >
-          {filteredSkills.map((skill, index) => (
-            <SkillCard key={skill.name} skill={skill} index={index} />
-          ))}
-        </motion.div>
+        {/* Grille de compétences avec animation */}
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 max-w-5xl mx-auto"
+          >
+            {filteredSkills.map((skill, index) => (
+              <SkillCard key={skill.name} skill={skill} index={index} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
         
         {/* Message si aucune compétence n'est trouvée */}
         {filteredSkills.length === 0 && (
-          <motion.p 
+          <motion.div 
             variants={fadeInUp}
             initial="initial"
             animate="animate"
-            className="text-center text-white/60 mt-8 text-sm"
+            className="text-center mt-12"
           >
-            Aucune compétence trouvée dans cette catégorie.
-          </motion.p>
+            <div className="inline-block p-6 bg-black/30 rounded-xl backdrop-blur-sm">
+              <p className="text-white/80">Aucune compétence trouvée dans cette catégorie.</p>
+              <button 
+                onClick={() => setActiveCategory(categories[0])}
+                className="mt-4 px-4 py-2 bg-primary/80 text-white text-sm rounded-full hover:bg-primary transition-colors duration-300 cursor-pointer"
+              >
+                Voir une autre catégorie
+              </button>
+            </div>
+          </motion.div>
         )}
       </div>
     </main>

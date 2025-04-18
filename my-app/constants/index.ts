@@ -7,6 +7,7 @@ import {
   IoBookOutline, 
   IoGlobeOutline 
 } from "react-icons/io5";
+import { NavLink, Project, Skill, Experience, Interest } from '@/types';
 
 export const Socials = [
   // {
@@ -26,7 +27,7 @@ export const Socials = [
   },
 ];
 
-export const NavLinks = [
+export const NavLinks: NavLink[] = [
   {
     name: "Home",
     path: "/",
@@ -67,7 +68,7 @@ export const aboutText = [
   "Prêt à donner vie à vos idées ? Contactez-moi pour créer ensemble une présence en ligne unique et performante !"
 ];
 
-export const experiences = [
+export const experiences: Experience[] = [
   {
     title: "Webmaster Freelance",
     company: "Indépendant",
@@ -88,7 +89,7 @@ export const experiences = [
   }
 ];
 
-export const interests = [ 
+export const interests: Interest[] = [ 
   {
     name: "Développement Web",
     icon: IoCodeOutline
@@ -111,7 +112,7 @@ export const interests = [
   }
 ];
 
-export const SkillData = [
+export const SkillData: Skill[] = [
   {
     name: "HTML",
     Image: "/html.png",
@@ -221,7 +222,6 @@ export const SkillData = [
     name: "Gemini",
     Image: "/Gemini.png",
     category: "IA",
-    color:"bg-white",
     level: 85,
     experience: "1+ an"
   },
@@ -262,7 +262,7 @@ export const SkillData = [
   }
 ];
 
-export const Projects = [
+export const Projects: Project[] = [
   {
     title: "Quercus Assurances",
     description: "Courtier indépendant spécialisé en assurance de personnes, accompagne ses clients avec des solutions sur-mesure.",

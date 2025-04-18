@@ -1,8 +1,33 @@
+/* tailwindcss */
 @import "./tailwind.css";
 
 :root {
   --background: #030014;
   --foreground: #ffffff;
+  --primary: #e11d70;
+  --primary-light: #ff4d9e;
+  --secondary: #0f0a1e;
+  --card-bg: rgba(0, 0, 0, 0.3);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-hover: rgba(225, 29, 112, 0.15);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+}
+
+/* Mode clair */
+.light-theme {
+  --background: #f5f5f7;
+  --foreground: #1a1a1a;
+  --primary: #e11d70;
+  --primary-light: #ff4d9e;
+  --secondary: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --card-hover: rgba(225, 29, 112, 0.1);
+  --text-primary: #1a1a1a;
+  --text-secondary: rgba(0, 0, 0, 0.7);
+  --text-tertiary: rgba(0, 0, 0, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,4 +98,14 @@
 /* Glass effect */
 .glass {
   @apply bg-white/10 backdrop-blur-sm border border-white/20;
+}
+
+/* Accessibilité - Focus visible */
+*:focus-visible {
+  @apply outline-2 outline-primary outline-offset-2;
+}
+
+/* Transitions pour le changement de thème */
+body, a, button, div, span, p, h1, h2, h3, h4, h5, h6 {
+  @apply transition-colors duration-300;
 }
