@@ -48,7 +48,7 @@ const AboutMe = () => {
         {/* Section photo et introduction */}
         <motion.div
           {...fadeInUp}
-          className="flex flex-col md:flex-row items-center gap-12 mb-20"
+          className="flex flex-col md:flex-row items-center gap-12 mb-12"
         >
           {/* Photo avec effet de glow amélioré */}
           <div className="relative group">
@@ -88,7 +88,7 @@ const AboutMe = () => {
               className="text-white/80 space-y-4 backdrop-blur-sm p-6 rounded-2xl bg-black/20 border border-white/5 hover:border-primary/20 transition-all duration-300"
             >
               {aboutText.map((paragraph, index) => (
-                <p key={index} className="leading-relaxed">
+                <p key={index} className="leading-relaxed text-sm">
                   {paragraph}
                 </p>
               ))}

@@ -198,7 +198,7 @@ const ContactForm = () => {
               animate={{ opacity: 1, y: 0 }}
               className="mt-4 p-2 bg-red-500/20 border border-red-500/30 rounded-lg text-center"
             >
-              <p className="text-sm text-red-400">Erreur lors de l'envoi. Veuillez réessayer.</p>
+              <p className="text-sm text-red-400">Oups ton mail ne s'est pas envoyé , Réessaye </p>
             </motion.div>
           )}
         </form>

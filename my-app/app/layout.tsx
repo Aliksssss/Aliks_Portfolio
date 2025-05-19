@@ -20,13 +20,13 @@ const notoSansLao = Noto_Sans_Lao({
 });
 
 export const metadata: Metadata = {
-  title: "Aliks Dev | Portfolio de développeur web",
+  title: "Aliks Dev | Portfolio",
   description: "Portfolio de développeur web spécialisé en création de sites modernes, accessibles et performants",
   keywords: ["développeur web", "portfolio", "frontend", "react", "nextjs", "tailwind"],
   authors: [{ name: "Aliks" }],
   robots: "index, follow",
   openGraph: {
-    title: "Aliks Dev | Portfolio de développeur web",
+    title: "Aliks Dev | Portfolio",
     description: "Portfolio de développeur web spécialisé en création de sites modernes, accessibles et performants",
     type: "website",
     locale: "fr_FR",
