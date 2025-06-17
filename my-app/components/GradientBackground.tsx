@@ -14,7 +14,13 @@ const GradientBackground = ({ className = '' }: GradientBackgroundProps) => {
       transition={{ duration: 0.8 }}
       className={`fixed inset-0 z-0 ${className}`}
       style={{
-        background: 'linear-gradient(135deg, #121212 0%, #121212 50%, #FF6984 100%)',
+        background: '#F6EBD4',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: -1
       }}
     />
   );

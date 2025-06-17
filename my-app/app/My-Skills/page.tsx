@@ -34,8 +34,8 @@ const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
           flex items-center justify-center
           cursor-pointer
           ${isHovered 
-            ? 'bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg shadow-primary/10 scale-105' 
-            : 'bg-black/20 hover:bg-black/30'
+            ? 'bg-gradient-to-br from-[#626C3B]/20 to-[#83792E]/5 shadow-lg scale-105' 
+            : 'bg-[#CC914D]/10 hover:bg-[#CC914D]/20'
           }
         `}
       >
@@ -58,7 +58,7 @@ const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
           {/* Nom de la compétence */}
           <h3 className={`
             text-xs font-medium transition-colors duration-300
-            ${isHovered ? 'text-primary' : 'text-white/90'}
+            ${isHovered ? 'text-[#626C3B]' : 'text-[#403011]'}
           `}>
             {skill.name}
           </h3>
@@ -79,18 +79,18 @@ const Page = () => {
   const filteredSkills = SkillData.filter(skill => skill.category === activeCategory);
 
   return (
-    <main className="relative w-full min-h-screen bg-secondary overflow-hidden">
-      {/* Arrière-plan minimaliste */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-black to-primary/20"></div>
+    <main className="relative w-full min-h-screen overflow-hidden bg-[#F6EBD4]">
+      {/* Arrière-plan beige */}
+      <div className="absolute inset-0 z-0 bg-[#F6EBD4]">
+        <div className="absolute inset-0"></div>
         
         {/* Éléments subtils pour ajouter de la profondeur */}
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/10 rounded-full filter blur-[180px] opacity-30"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-primary/10 rounded-full filter blur-[180px] opacity-30"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 rounded-full filter blur-[180px] opacity-20" style={{ backgroundColor: '#626C3B' }}></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 rounded-full filter blur-[180px] opacity-20" style={{ backgroundColor: '#83792E' }}></div>
         
         {/* Éléments lumineux pour un effet moderne */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/5 rounded-full filter blur-[80px]"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-primary/5 rounded-full filter blur-[80px]"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full filter blur-[80px] opacity-15" style={{ backgroundColor: '#E8AF3B' }}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-32 h-32 rounded-full filter blur-[80px] opacity-15" style={{ backgroundColor: '#CC914D' }}></div>
       </div>
       
       <div className="relative z-10 container mx-auto px-4 py-16 max-w-6xl">
@@ -102,15 +102,15 @@ const Page = () => {
           className="mb-12 text-center"
         >
           <h1 className="text-3xl md:text-4xl font-bold inline-block">
-            <span className="text-white">Mes </span>
-            <span className="text-primary">Compétences</span>
+            <span style={{ color: '#403011' }}>Mes </span>
+            <span style={{ color: '#626C3B' }}>Compétences</span>
           </h1>
-          <div className="h-px w-16 bg-primary/50 mx-auto mt-3"></div>
+          <div className="h-0.5 w-24 mx-auto mt-4" style={{ background: 'linear-gradient(to right, transparent, #626C3B, transparent)' }}></div>
         </motion.div>
 
         {/* Filtres de catégorie modernisés */}
         <div className="flex justify-center mb-12">
-          <div className="bg-black/20 backdrop-blur-sm rounded-full p-1 inline-flex">
+          <div className="backdrop-blur-sm rounded-full p-1 inline-flex" style={{ backgroundColor: 'rgba(204, 145, 77, 0.1)' }}>
             {categories.map((category) => (
               <motion.button
                 key={category}
@@ -119,9 +119,11 @@ const Page = () => {
                   px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full
                   cursor-pointer
                   ${activeCategory === category 
-                    ? 'bg-primary text-white shadow-md' 
-                    : 'bg-transparent text-white/80 hover:text-white hover:bg-black/20'
+                    ? 'shadow-md' 
+                    : 'bg-transparent hover:bg-[#CC914D]/10'
                   }
+                  ${activeCategory === category ? 'text-[#F6EBD4]' : 'text-[#403011]'}
+                  ${activeCategory === category ? 'bg-[#626C3B]' : ''}
                 `}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -156,11 +158,12 @@ const Page = () => {
             animate="animate"
             className="text-center mt-12"
           >
-            <div className="inline-block p-6 bg-black/30 rounded-xl backdrop-blur-sm">
-              <p className="text-white/80">Aucune compétence trouvée dans cette catégorie.</p>
+            <div className="inline-block p-6 rounded-xl backdrop-blur-sm" style={{ backgroundColor: 'rgba(204, 145, 77, 0.1)' }}>
+              <p style={{ color: '#403011' }}>Aucune compétence trouvée dans cette catégorie.</p>
               <button 
                 onClick={() => setActiveCategory(categories[0])}
-                className="mt-4 px-4 py-2 bg-primary/80 text-white text-sm rounded-full hover:bg-primary transition-colors duration-300 cursor-pointer"
+                className="mt-4 px-4 py-2 text-sm rounded-full transition-colors duration-300 cursor-pointer"
+                style={{ backgroundColor: '#626C3B', color: '#F6EBD4' }}
               >
                 Voir une autre catégorie
               </button>

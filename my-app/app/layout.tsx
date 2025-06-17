@@ -83,11 +83,11 @@ export default function RootLayout({
             }
           `}
         </style>
-        <meta name="theme-color" content="#030014" />
+        <meta name="theme-color" content="#F6EBD4" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="bg-background text-foreground min-h-screen flex flex-col">
-        <GradientBackground className="fixed inset-0 z-0" />
+      <body className="min-h-screen flex flex-col" style={{ backgroundColor: '#F6EBD4', color: '#403011' }}>
+        <div className="fixed inset-0 z-0" style={{ backgroundColor: '#F6EBD4' }} />
         <ClientComponents />
         <Navigation />
         <main className="flex-1 relative z-20">

@@ -34,7 +34,7 @@ export default function AccessibilityMenu() {
       {/* Bouton d'accessibilité */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 left-4 z-50 p-3 rounded-full bg-primary text-white hover:bg-primary/90 transition duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+        className="fixed bottom-4 left-4 z-50 p-3 rounded-full bg-[#83792E] text-white hover:bg-[#83792E]/90 transition duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-[#83792E]/50"
         aria-label="Ouvrir le menu d'accessibilité"
       >
         <IoAccessibilityOutline className="w-5 h-5" />
@@ -68,7 +68,7 @@ export default function AccessibilityMenu() {
                   <button
                     onClick={() => changeFontSize(90)}
                     className={`px-3 py-1.5 rounded ${
-                      fontSize === 90 ? 'bg-primary text-white' : 'bg-black/30 text-white/70 hover:text-white'
+                      fontSize === 90 ? 'bg-[#83792E] text-white' : 'bg-black/30 text-white/70 hover:text-white'
                     } transition duration-300`}
                     aria-label="Petite taille de texte"
                   >
@@ -77,7 +77,7 @@ export default function AccessibilityMenu() {
                   <button
                     onClick={() => changeFontSize(100)}
                     className={`px-3 py-1.5 rounded ${
-                      fontSize === 100 ? 'bg-primary text-white' : 'bg-black/30 text-white/70 hover:text-white'
+                      fontSize === 100 ? 'bg-[#83792E] text-white' : 'bg-black/30 text-white/70 hover:text-white'
                     } transition duration-300`}
                     aria-label="Taille de texte normale"
                   >
@@ -86,7 +86,7 @@ export default function AccessibilityMenu() {
                   <button
                     onClick={() => changeFontSize(110)}
                     className={`px-3 py-1.5 rounded ${
-                      fontSize === 110 ? 'bg-primary text-white' : 'bg-black/30 text-white/70 hover:text-white'
+                      fontSize === 110 ? 'bg-[#83792E] text-white' : 'bg-black/30 text-white/70 hover:text-white'
                     } transition duration-300`}
                     aria-label="Grande taille de texte"
                   >
@@ -95,7 +95,7 @@ export default function AccessibilityMenu() {
                   <button
                     onClick={() => changeFontSize(120)}
                     className={`px-3 py-1.5 rounded ${
-                      fontSize === 120 ? 'bg-primary text-white' : 'bg-black/30 text-white/70 hover:text-white'
+                      fontSize === 120 ? 'bg-[#83792E] text-white' : 'bg-black/30 text-white/70 hover:text-white'
                     } transition duration-300`}
                     aria-label="Très grande taille de texte"
                   >
@@ -113,7 +113,7 @@ export default function AccessibilityMenu() {
                 <button
                   onClick={toggleHighContrast}
                   className={`px-4 py-2 rounded flex items-center gap-2 ${
-                    highContrast ? 'bg-primary text-white' : 'bg-black/30 text-white/70 hover:text-white'
+                    highContrast ? 'bg-[#83792E] text-white' : 'bg-black/30 text-white/70 hover:text-white'
                   } transition duration-300`}
                   aria-pressed={highContrast}
                 >
@@ -130,7 +130,7 @@ export default function AccessibilityMenu() {
                 <button
                   onClick={toggleReducedMotion}
                   className={`px-4 py-2 rounded flex items-center gap-2 ${
-                    reducedMotion ? 'bg-primary text-white' : 'bg-black/30 text-white/70 hover:text-white'
+                    reducedMotion ? 'bg-[#83792E] text-white' : 'bg-black/30 text-white/70 hover:text-white'
                   } transition duration-300`}
                   aria-pressed={reducedMotion}
                 >

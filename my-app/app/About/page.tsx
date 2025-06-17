@@ -14,19 +14,19 @@ const AboutMe = () => {
   };
 
   return (
-    <main className="flex relative w-full h-screen bg-secondary text-white overflow-y-auto">
-      {/* Arrière-plan moderne avec dégradé et éléments lumineux */}
-      <div className="absolute inset-0 z-0">
-        {/* Fond avec dégradé noir et violet */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-secondary to-primary/10"></div>
+    <main className="flex relative w-full h-screen overflow-y-auto" style={{ backgroundColor: '#F6EBD4', color: '#403011' }}>
+      {/* Arrière-plan uni avec éléments lumineux */}
+      <div className="absolute inset-0 z-0" style={{ backgroundColor: '#F6EBD4' }}>
+        {/* Fond uni beige */}
+        <div className="absolute inset-0" style={{ backgroundColor: '#F6EBD4' }}></div>
         
-        {/* Éléments lumineux en arrière-plan */}
-        <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-primary/20 rounded-full filter blur-[150px] opacity-20 transform translate-x-1/4 -translate-y-1/4"></div>
-        <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-primary/20 rounded-full filter blur-[150px] opacity-20 transform -translate-x-1/4 translate-y-1/4"></div>
+        {/* Éléments lumineux en arrière-plan avec nouvelles couleurs */}
+        <div className="absolute top-0 right-0 w-2/3 h-2/3 rounded-full filter blur-[150px] opacity-10 transform translate-x-1/4 -translate-y-1/4" style={{ backgroundColor: '#626C3B' }}></div>
+        <div className="absolute bottom-0 left-0 w-2/3 h-2/3 rounded-full filter blur-[150px] opacity-10 transform -translate-x-1/4 translate-y-1/4" style={{ backgroundColor: '#83792E' }}></div>
         
-        {/* Petits points lumineux */}
-        <div className="absolute top-1/4 left-1/3 w-24 h-24 bg-primary/30 rounded-full filter blur-[50px] opacity-20"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-32 h-32 bg-primary/30 rounded-full filter blur-[60px] opacity-20"></div>
+        {/* Petits points lumineux avec nouvelles couleurs */}
+        <div className="absolute top-1/4 left-1/3 w-24 h-24 rounded-full filter blur-[50px] opacity-15" style={{ backgroundColor: '#E8AF3B' }}></div>
+        <div className="absolute bottom-1/3 right-1/4 w-32 h-32 rounded-full filter blur-[60px] opacity-15" style={{ backgroundColor: '#CC914D' }}></div>
       </div>
       
       {/* Conteneur principal */}
@@ -39,10 +39,10 @@ const AboutMe = () => {
           className="mb-16 text-center"
         >
           <h1 className="text-4xl md:text-5xl font-bold inline-block">
-            <span className="text-white">À </span>
-            <span className="text-primary">Propos</span>
+            <span style={{ color: '#403011' }}>À </span>
+            <span style={{ color: '#626C3B' }}>Propos</span>
           </h1>
-          <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4"></div>
+          <div className="h-0.5 w-24 mx-auto mt-4" style={{ background: 'linear-gradient(to right, transparent, #626C3B, transparent)' }}></div>
         </motion.div>
 
         {/* Section photo et introduction */}
@@ -52,10 +52,10 @@ const AboutMe = () => {
         >
           {/* Photo avec effet de glow amélioré */}
           <div className="relative group">
-            <div className="absolute -inset-2 bg-gradient-to-br from-primary/40 to-primary/10 rounded-full blur-xl opacity-70 
-                         group-hover:opacity-100 transition-all duration-700"></div>
-            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-white/10 
-                         shadow-lg shadow-primary/20">
+            <div className="absolute -inset-2 rounded-full blur-xl opacity-70 
+                         group-hover:opacity-100 transition-all duration-700" style={{ background: 'linear-gradient(to bottom right, rgba(98, 108, 59, 0.4), rgba(98, 108, 59, 0.1))' }}></div>
+            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 
+                         shadow-lg" style={{ borderColor: 'rgba(98, 108, 59, 0.3)', boxShadow: '0 10px 15px -3px rgba(98, 108, 59, 0.2)' }}>
               <Image
                 src="/Alisack_magic.png"
                 alt="Alisack Portrait"
@@ -70,7 +70,7 @@ const AboutMe = () => {
             <motion.h2
               {...fadeInUp}
               transition={{ delay: 0.1 }}
-              className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80"
+              className="text-2xl font-bold mb-3"  style={{ color: '#626C3B' }}
             >
               Alisack V
             </motion.h2>
@@ -79,13 +79,12 @@ const AboutMe = () => {
               transition={{ delay: 0.2 }}
               className="mb-6 text-lg text-white/90 md:text-xl"
             >
-              <span className="text-primary">Web</span>
-              <span className="text-white">master</span> & Designer Créatif
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#626C3B] to-[#83792E] font-medium">Webmaster & Designer Créatif</span>
             </motion.h3>
             <motion.div
               {...fadeInUp}
               transition={{ delay: 0.3 }}
-              className="text-white/80 space-y-4 backdrop-blur-sm p-6 rounded-2xl bg-black/20 border border-white/5 hover:border-primary/20 transition-all duration-300"
+              className="space-y-4 backdrop-blur-sm p-6 rounded-2xl border transition-all duration-300" style={{ backgroundColor: 'rgba(204, 145, 77, 0.1)', borderColor: 'rgba(131, 121, 46, 0.2)', color: '#403011' }}
             >
               {aboutText.map((paragraph, index) => (
                 <p key={index} className="leading-relaxed text-sm">
@@ -104,11 +103,11 @@ const AboutMe = () => {
           className="mt-16 mb-6"
         >
           <div className="flex items-center mb-10">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 mr-4">
-              <IoSchoolOutline className="text-primary text-xl" />
+            <div className="flex items-center justify-center w-10 h-10 rounded-full mr-4" style={{ backgroundColor: 'rgba(98, 108, 59, 0.2)' }}>
+              <IoSchoolOutline className="text-xl" style={{ color: '#626C3B' }} />
             </div>
-            <h2 className="text-xl font-semibold text-white">Expérience & Formation</h2>
-            <div className="ml-4 h-0.5 flex-1 bg-gradient-to-r from-primary/50 to-transparent"></div>
+            <h2 className="text-xl font-semibold" style={{ color: '#403011' }}>Expérience & Formation</h2>
+            <div className="ml-4 h-0.5 flex-1" style={{ background: 'linear-gradient(to right, rgba(98, 108, 59, 0.5), transparent)' }}></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -121,17 +120,17 @@ const AboutMe = () => {
                 whileHover={{ y: -5 }}
                 className="relative group"
               >
-                <div className="absolute -inset-1 bg-gradient-to-br from-primary/30 to-transparent rounded-2xl blur-md opacity-0 
-                             group-hover:opacity-100 transition-all duration-500"></div>
-                <div className="relative p-6 bg-black/30 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 h-full">
+                <div className="absolute -inset-1 rounded-2xl blur-md opacity-0 
+                             group-hover:opacity-100 transition-all duration-500" style={{ background: 'linear-gradient(to bottom right, rgba(98, 108, 59, 0.3), transparent)' }}></div>
+                <div className="relative p-6 backdrop-blur-sm rounded-2xl border transition-all duration-300 h-full" style={{ backgroundColor: 'rgba(204, 145, 77, 0.1)', borderColor: 'rgba(131, 121, 46, 0.2)' }}>
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-medium text-white group-hover:text-primary transition-colors duration-300">{exp.title}</h3>
-                    <span className="text-xs text-white/90 bg-primary/20 px-3 py-1 rounded-full">
+                    <h3 className="font-medium group-hover:transition-colors duration-300" style={{ color: '#403011' }}>{exp.title}</h3>
+                    <span className="text-xs px-3 py-1 rounded-full" style={{ backgroundColor: 'rgba(98, 108, 59, 0.2)', color: '#403011' }}>
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-sm text-white/80 mb-3 font-medium">{exp.company}</p>
-                  <p className="text-xs text-white/70 leading-relaxed">{exp.description}</p>
+                  <p className="text-sm mb-3 font-medium" style={{ color: '#403011' }}>{exp.company}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(64, 48, 17, 0.8)' }}>{exp.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -146,11 +145,11 @@ const AboutMe = () => {
           className="mt-16 mb-6"
         >
           <div className="flex items-center mb-10">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 mr-4">
-              <IoHeartOutline className="text-primary text-xl" />
+            <div className="flex items-center justify-center w-10 h-10 rounded-full mr-4" style={{ backgroundColor: 'rgba(98, 108, 59, 0.2)' }}>
+              <IoHeartOutline className="text-xl" style={{ color: '#626C3B' }} />
             </div>
-            <h2 className="text-xl font-semibold text-white">Centres d'intérêt</h2>
-            <div className="ml-4 h-0.5 flex-1 bg-gradient-to-r from-primary/50 to-transparent"></div>
+            <h2 className="text-xl font-semibold" style={{ color: '#403011' }}>Centres d'intérêt</h2>
+            <div className="ml-4 h-0.5 flex-1" style={{ background: 'linear-gradient(to right, rgba(98, 108, 59, 0.5), transparent)' }}></div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -163,13 +162,13 @@ const AboutMe = () => {
                 whileHover={{ scale: 1.03 }}
                 className="relative group cursor-pointer"
               >
-                <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-md opacity-0 
-                             group-hover:opacity-100 transition-all duration-500"></div>
-                <div className="relative p-5 bg-black/30 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 flex items-center gap-4 h-full">
-                  <div className="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-full group-hover:bg-primary/30 transition-colors duration-300">
-                    <interest.icon className="text-primary text-xl" />
+                <div className="absolute -inset-1 rounded-2xl blur-md opacity-0 
+                             group-hover:opacity-100 transition-all duration-500" style={{ background: 'linear-gradient(to bottom right, rgba(98, 108, 59, 0.2), transparent)' }}></div>
+                <div className="relative p-5 backdrop-blur-sm rounded-2xl border transition-all duration-300 flex items-center gap-4 h-full" style={{ backgroundColor: 'rgba(204, 145, 77, 0.1)', borderColor: 'rgba(131, 121, 46, 0.2)' }}>
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full transition-colors duration-300" style={{ backgroundColor: 'rgba(98, 108, 59, 0.2)' }}>
+                    <interest.icon className="text-xl" style={{ color: '#626C3B' }} />
                   </div>
-                  <span className="text-sm text-white/90 font-medium group-hover:text-white transition-colors duration-300">{interest.name}</span>
+                  <span className="text-sm font-medium transition-colors duration-300" style={{ color: '#403011' }}>{interest.name}</span>
                 </div>
               </motion.div>
             ))}

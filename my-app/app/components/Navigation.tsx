@@ -55,7 +55,7 @@ const Navigation = () => {
       <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50 cursor-pointer">
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex relative z-10 justify-center items-center w-10 h-10 bg-[#FF6984] rounded-full shadow-lg transition-all duration-300 hover:bg-[#FF6984]/80 border border-[#FF6984]/30 cursor-pointer"
+          className="flex relative z-10 justify-center items-center w-10 h-10 bg-[#83792E] rounded-full shadow-lg transition-all duration-300 hover:bg-[#83792E]/80 border border-[#83792E]/30 cursor-pointer"
           whileHover={{ scale: 1.1 }}
           onMouseEnter={() => setHoveredButton("menu")}
           onMouseLeave={() => setHoveredButton(null)}
@@ -94,8 +94,8 @@ const Navigation = () => {
                       href={nav.path}
                       className={`flex relative z-10 justify-center items-center w-10 h-10 rounded-full shadow-lg backdrop-blur-sm border transition-all duration-300 cursor-pointer ${
                         path === nav.path 
-                          ? 'bg-[#FF6984] border-[#FF6984]/50' 
-                          : 'bg-black/50 border-white/10 hover:bg-[#FF6984]/70 hover:border-[#FF6984]/30'
+                          ? 'bg-[#83792E] border-[#83792E]/50' 
+                          : 'bg-black/50 border-white/10 hover:bg-[#83792E]/70 hover:border-[#83792E]/30'
                       }`}
                       onClick={() => {
                         setIsMenuOpen(false);
