@@ -18,7 +18,7 @@ export default function SocialIcons() {
   const instagramUrl = 'https://instagram.com';
 
   return (
-    <div className="fixed bottom-0 w-full bg-black py-2 z-20">
+    <div className="fixed bottom-0 w-full bg-[#626C3B] py-2 z-20">
       <div className="flex justify-center items-center space-x-4">
         <Link 
           href={linkedinUrl}

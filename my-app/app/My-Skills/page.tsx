@@ -28,11 +28,14 @@ const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
     >
       <div 
         className={`
-          relative overflow-hidden p-4
-          transition-all duration-300 h-full
+          relative overflow-hidden
+          transition-all duration-300
           rounded-full aspect-square
           flex items-center justify-center
           cursor-pointer
+          p-2 sm:p-3 md:p-4
+          max-w-[80px] sm:max-w-[100px] md:max-w-full
+          mx-auto
           ${isHovered 
             ? 'bg-gradient-to-br from-[#626C3B]/20 to-[#83792E]/5 shadow-lg scale-105' 
             : 'bg-[#CC914D]/10 hover:bg-[#CC914D]/20'
@@ -42,7 +45,7 @@ const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
         <div className="relative z-10 flex flex-col items-center justify-center text-center">
           {/* Image de la compétence */}
           <div className={`
-            relative w-12 h-12 mb-2 flex items-center justify-center
+            relative flex items-center justify-center
             transition-all duration-300
             ${isHovered ? 'scale-110' : 'scale-100'}
           `}>
@@ -57,7 +60,7 @@ const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
           
           {/* Nom de la compétence */}
           <h3 className={`
-            text-xs font-medium transition-colors duration-300
+            text-xs font-medium transition-colors duration-300 mt-1
             ${isHovered ? 'text-[#626C3B]' : 'text-[#403011]'}
           `}>
             {skill.name}
@@ -142,7 +145,7 @@ const Page = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 max-w-5xl mx-auto"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto"
           >
             {filteredSkills.map((skill, index) => (
               <SkillCard key={skill.name} skill={skill} index={index} />

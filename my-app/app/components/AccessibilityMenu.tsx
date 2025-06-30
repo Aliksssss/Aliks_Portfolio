@@ -34,7 +34,7 @@ export default function AccessibilityMenu() {
       {/* Bouton d'accessibilité */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 left-4 z-50 p-3 rounded-full bg-[#83792E] text-white hover:bg-[#83792E]/90 transition duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-[#83792E]/50"
+        className="fixed top left-4 z-50 p-3 rounded-full bg-[#83792E] text-white hover:bg-[#83792E]/90 transition duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-[#83792E]/50"
         aria-label="Ouvrir le menu d'accessibilité"
       >
         <IoAccessibilityOutline className="w-5 h-5" />
