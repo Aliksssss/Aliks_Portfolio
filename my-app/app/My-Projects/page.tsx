@@ -23,7 +23,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       whileHover={{ y: -5 }}
     >
       <div className="relative overflow-hidden rounded-xl shadow-md h-full transition-all duration-300
-                    hover:shadow-lg border border-transparent group" 
+                    hover:shadow-lg border border-transparent group cursor-pointer" 
       style={{ 
         backgroundColor: 'rgba(204, 145, 77, 0.1)', 
         borderColor: 'rgba(131, 121, 46, 0.2)' 
